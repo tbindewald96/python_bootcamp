@@ -7,6 +7,9 @@ cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 computer_hand = []
 player_hand = []
 
+def random_choice():
+    return random.choice(cards)
+
 #The deck is unlimited in size.
 #There are no jokers.
 #The Jack/Queen/King all count as 10.
@@ -16,18 +19,29 @@ player_hand = []
 #Cards are not removed from the deck as they are drawn.
 #The computer is the dealer.
 
-#input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+start_game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 
-def random_choice():
-    return random.choice(cards)
+if start_game == "y":
+    done = False
 
-for i in range(2):
-    player_hand.append(random_choice())
+while not done:
+    for i in range(2):
+        player_hand.append(random_choice())
+    player_score = sum(player_hand)
+    computer_first_card = random_choice()
+    computer_hand.append(computer_first_card)
+    print(f"Your cards: {player_hand}, current score: {player_score}")
+    print(f"Computer's first card: {computer_first_card}")
+    while player_score < 21 and not done:
+        proceed = input("Type 'y' to get another card, type 'n' to pass: ")
+        if proceed == "n":
+            done = True
+        print(done)
+        player_hand.append(random_choice)
+        
 
-player_score = sum(player_hand)
 
-computer_first_card = random_choice()
-computer_hand.append(computer_first_card)
 
-print(f"Your cards: {player_hand}, current score: {player_score}")
-print(f"Computer's first card: {computer_first_card}")
+
+
+
