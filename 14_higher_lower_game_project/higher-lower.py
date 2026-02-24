@@ -11,7 +11,7 @@ while True:
     candidate_b = random.choice(data)
 
     while candidate_a == candidate_b:
-        b = random.choice(data)
+        candidate_b = random.choice(data)
 
     if candidate_a["follower_count"] > candidate_b["follower_count"]:
         winner = "a"
