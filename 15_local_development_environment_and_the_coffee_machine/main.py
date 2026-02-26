@@ -51,6 +51,15 @@ def budget():
     values.append(coins_amount[i] * coins_value[i])
   return round(sum(values), 2)
 
+def resource_limit():
+    ingredients = ["water", "milk", "coffee"]
+    for i in ingredients:
+        if resources[i] - MENU["ingredients"][i] < 0:
+            print(f"Sorry there is not enough {i}.")
+
+def process_coins():
+    
+
 
 # TODO: 1. Print report of all resources
 # TODO: 2. Check resources sufficient to make order
@@ -65,7 +74,9 @@ while True:
             print(f"Coffee: {resources['coffee']}g")
             print(f"Money: ${budget()}")
     elif button == "espresso" or button == "latte" or button == "cappucino":
-        
+        resource_limit()
+
+
     elif button == "off":
         break
 
